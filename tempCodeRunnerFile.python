@@ -1,0 +1,21 @@
+import random
+jogador = input('Pedra, Papel ou Tesoura: ')
+jogadas = ['Pedra', 'Papel', 'Tesoura']
+
+pc = random.choice(jogadas)
+
+if (jogador not in jogadas
+    or pc not in jogadas):
+    print('Jogada Invalida')
+
+elif jogador == pc:
+    print('empate')
+
+elif ( (jogador == 'Papel' and pc == 'Pedra') \
+    or(jogador == 'Pedra' and pc == 'Tesoura')
+    or(jogador == 'Tesoura' and pc == 'Papel')
+    ):
+    print('Jogador 1 Ganhou!')
+
+else:
+    print('Jogador 2 Ganhou!')
