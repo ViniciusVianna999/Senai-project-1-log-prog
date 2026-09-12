@@ -1,4 +1,4 @@
-# 
+# pensar em quem e quando ganha
 jogador1 = input('Pedra, Papel ou Tesoura: ')
 jogador2 = input('Pedra, Papel ou Tesoura: ')
 jogadas = ['Pedra', 'Papel', 'Tesoura']
