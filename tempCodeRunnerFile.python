@@ -1,21 +1,39 @@
 import random
-jogador = input('Pedra, Papel ou Tesoura: ')
-jogadas = ['Pedra', 'Papel', 'Tesoura']
+# definir a pontuação total
+pontuação_total = 0
 
-pc = random.choice(jogadas)
+# definir o número de rodadas
+for rodada in range(1, 4):
+    numero_secreto = random.randint(0, 50)
+    tentativa = 1
+    acertou = False
 
-if (jogador not in jogadas
-    or pc not in jogadas):
-    print('Jogada Invalida')
+    print(f'rodada {rodada} de 3')
+#  definir o número de tentativas
+    while tentativa <= 5:
+        chute = int(input('Digite um número entre 0 e 50: '))
+#  verificar se o chute está dentro do intervalo permitido
+        if chute < 0 or chute > 50:
+            print('Você deve digitar um número entre 0 e 50!')
+            pass
+#  verificar se o chute é igual ao número secreto
+        if chute == numero_secreto:
+            print(f'Parabéns! Você acertou o número secreto {numero_secreto} na tentativa {tentativa}!')
+            pontuação_total += 100 - (tentativa - 1) *20
+            acertou = True
+            break
+        else:
+            if chute < numero_secreto:
+                print('O número secreto é maior.')
+            else:
+                print('O número secreto é menor.')
+        
 
-elif jogador == pc:
-    print('empate')
+            tentativa += 1
+# verificar se o jogador não acertou o número secreto após todas as tentativas
+    if not acertou:
+        print(f'Você não acertou o número secreto {numero_secreto}.')
+        print(f'Pontuação total: {pontuação_total}')
 
-elif ( (jogador == 'Papel' and pc == 'Pedra') \
-    or(jogador == 'Pedra' and pc == 'Tesoura')
-    or(jogador == 'Tesoura' and pc == 'Papel')
-    ):
-    print('Jogador 1 Ganhou!')
 
-else:
-    print('Jogador 2 Ganhou!')
+print(f'Pontuação total: {pontuação_total}')
