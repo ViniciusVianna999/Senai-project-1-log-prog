@@ -11,7 +11,7 @@ while(nota < 0 or nota > 10):
 
 # while not(nota >= 0 and nota <= 10):
 # pass
-
+usuario = int(input('Digite 0 para sair ou 1 para continuar:'))
 while True:
     if usuario == 0:
         # soma
