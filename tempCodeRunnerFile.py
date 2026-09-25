@@ -1,1 +1,1 @@
-ogadas = ['Pedra', 'Papel', 'Tesoura']
+a
