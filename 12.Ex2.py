@@ -22,3 +22,6 @@ else:
     print('Não esta na lista')
     
 # V2 -> percorrer a lista
+for num in lista:
+    if meu_valor == num:
+        print(f'Esta na lista, na posição: {lista.index(num)}')
