@@ -39,4 +39,4 @@ if pontos >= 200:
 elif 100< pontos <200:
     print(f'Ate que tu sabe algo, {pontos} nessa ')
 else:
-    print(f'Tente de novo, ou não {pontos} nessa rodada')
+    print(f'Tente de novo, ou não {pontos} nessa rodada1')
