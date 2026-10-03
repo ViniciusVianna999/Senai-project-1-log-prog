@@ -1,42 +1,30 @@
-import random
-print('Bem vindo ao jogo de adivinhação')
-pontos = 0
+matriz = []
+
+print("Digite os valores da matriz 3x3:")
 for i in range(3):
-    print(f'Essa é sua {i+1} rodada')
-    numero_aleatorio = random.randint(1, 50)
-    tentativas = 0 
-    acertou = False  # variavel de controle
-    
-# enquanto tiver chances
-while tentativas <= 5:
-    palpite = int(input('Dê seu chute (1 à 50): '))
+    linha = []
+    for j in range(3):
+        valor = int(input(f"Digite o valor para a posição [{i}][{j}]: "))
+        linha.append(valor)
+    matriz.append(linha)
 
-    # se acertou
-    if palpite == numero_aleatorio:
-        print('Você acertou')
-        if tentativas == 1:
-            pontos += 100 #acertou de primeira
-        elif tentativas == 5:
-            pontos += 10
-        else:
-            pontos += (100 - tentativas*25)
-        break # para a execução do laço While
+# Exibe a matriz digitada
+print("\nMatriz digitada:")
+for linha in matriz:
+    print(linha)
 
-    # ajudas
-    elif palpite <  numero_aleatorio:
-        print('Tente um numero maior')
-    
-    elif palpite > numero_aleatorio:
-        print('Tente um numero menor')
+# Encontra o maior valor
+maior = matriz[0][0]
+linha_maior = 0
+coluna_maior = 0
 
+for i in range(3):
+    for j in range(3):
+        if matriz[i][j] > maior:
+            maior = matriz[i][j]
+            linha_maior = i
+            coluna_maior = j
 
-    tentativas += 1 #usou uma tentativa
-if not acertou:
-    print(f'Nessa rodada ({i+1}), você errou muito, gastou tudo')
-
-if pontos >= 200:
-    print(f'Sabe muito, faturou {pontos} pontos')
-elif 100< pontos <200:
-    print(f'Ate que tu sabe algo, {pontos} nessa ')
-else:
-    print(f'Tente de novo, ou não {pontos} nessa rodada')
+print(f"\nMaior valor: {maior}")
+print(f"Encontrado na linha {linha_maior} e coluna {coluna_maior}")
+print(f"Posição (1-based): linha {linha_maior + 1}, coluna {coluna_maior + 1}")
