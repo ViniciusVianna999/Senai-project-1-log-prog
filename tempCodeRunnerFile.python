@@ -1,30 +1,6 @@
-matriz = []
+def fatorial(numero):
+    if numero == 0:
+        return 1
+    return numero * fatorial(numero - 1)
 
-print("Digite os valores da matriz 3x3:")
-for i in range(3):
-    linha = []
-    for j in range(3):
-        valor = int(input(f"Digite o valor para a posição [{i}][{j}]: "))
-        linha.append(valor)
-    matriz.append(linha)
-
-# Exibe a matriz digitada
-print("\nMatriz digitada:")
-for linha in matriz:
-    print(linha)
-
-# Encontra o maior valor
-maior = matriz[0][0]
-linha_maior = 0
-coluna_maior = 0
-
-for i in range(3):
-    for j in range(3):
-        if matriz[i][j] > maior:
-            maior = matriz[i][j]
-            linha_maior = i
-            coluna_maior = j
-
-print(f"\nMaior valor: {maior}")
-print(f"Encontrado na linha {linha_maior} e coluna {coluna_maior}")
-print(f"Posição (1-based): linha {linha_maior + 1}, coluna {coluna_maior + 1}")
+print(fatorial(-1))  # Output: 120
