@@ -1,0 +1,48 @@
+# Crie uma classe chamada Aluno para gerenciar a nota de um estudante de
+# forma segura:
+
+# i. O construtor __init__ deve receber o nome do aluno e a sua nota inicial.
+
+class Aluno:
+# ii. Guarde o nome como atributo público comum (self.nome = nome).
+# iii. Proteja o atributo da nota utilizando um underline (self._nota).
+
+    def __init__(self, nome, nota):
+        self.nome = nome
+        self._nota = nota
+#       vi. No construtor __init__, atribua self.nota = nota (sem underline)
+#       para forçar que a validação do setter já ocorra na hora de criar o objeto.
+        self.nota = nota
+
+    #Crie um @property para permitir a leitura de nota
+    #Isso seria um get
+    # em JAVA seria public function get_nota() { return this.nota; }
+    @property # permite ler a variavel como se fosse assim:aluno.nota
+    def nota(self):
+        return self._nota
+
+    # se não fosse @property
+    # def get_nota(self):
+    #     return self._nota
+
+
+#     v. Crie um @nota.setter que só permita alterar a nota se o valor
+#  estiver entre 0.0 e 10.0. Caso contrário, exiba uma mensagem de erro e 
+# rejeite a alteração.
+
+    @nota.setter
+    def nota(self, nova_nota):
+        # só muda se estiver entre 0.0 e 10.0
+        # if 0.0 <= nova_nota <= 10.0: #jeito pythonico
+        if nova_nota >= 0.0 and nova_nota <= 10.0:
+            self._nota = nova_nota
+        else:
+            print(f'[Erro] nota invalida: {nova_nota}.\
+                  \nA nota deve estar entre 0.0 e 10.0')
+            
+
+    
+
+bene = Aluno('Bene', 10)
+
+alex = Aluno('Alex', 18)   
